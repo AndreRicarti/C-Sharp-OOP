@@ -22,10 +22,10 @@ namespace POO
             }
         }
 
-        public int Agencia1 { get => agencia; set => agencia = value; }
-        public int NumeroConta { get => numeroConta; set => numeroConta = value; }
-        public decimal Saldo { get => saldo; set => saldo = value; }
-        public decimal Limite { get => limite; set => limite = value; }
+        public int Agencia { get => agencia; set => agencia = value; }
+        public int NumeroConta { get => numeroConta; private set => numeroConta = value; }
+        public decimal Saldo { get => saldo; private set => saldo = value; }
+        public decimal Limite { get => limite; private set => limite = value; }
 
         public Conta()
         {
@@ -47,7 +47,7 @@ namespace POO
             Saldo -= valor;
         }
 
-        void Depositar(decimal valor)
+        public void Depositar(decimal valor)
         {
             Saldo += valor;
         }
