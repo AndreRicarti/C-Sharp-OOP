@@ -23,7 +23,8 @@ namespace POO
         }
 
         public int NumeroConta { get => numeroConta; private set => numeroConta = value; }
-        public decimal Saldo { get => saldo; private set => saldo = value; }
+        // protected pode trabalhar no método set na mesma classe ou em classes que herdam.
+        public decimal Saldo { get => saldo; protected set => saldo = value; }
         public decimal Limite { get => limite; private set => limite = value; }
 
         public Conta()
@@ -46,9 +47,6 @@ namespace POO
             Saldo -= valor;
         }
 
-        public void Depositar(decimal valor)
-        {
-            Saldo += valor;
-        }
+        public abstract void Depositar(decimal valor);
     }
 }
