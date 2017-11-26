@@ -2,7 +2,7 @@
 
 namespace POO
 {
-    public class Conta
+    public abstract class Conta
     {
         int agencia;
         int numeroConta;
@@ -12,17 +12,16 @@ namespace POO
 
         public int Agencia
         {
-            get { return Agencia1; }
+            get { return Agencia; }
             set
             {
                 if (value > 0)
                 {
-                    Agencia1 = value;
+                    Agencia = value;
                 }
             }
         }
 
-        public int Agencia { get => agencia; set => agencia = value; }
         public int NumeroConta { get => numeroConta; private set => numeroConta = value; }
         public decimal Saldo { get => saldo; private set => saldo = value; }
         public decimal Limite { get => limite; private set => limite = value; }
@@ -39,7 +38,7 @@ namespace POO
 
         public void SetAgencia(int agencia)
         {
-            this.Agencia1 = agencia;
+            this.Agencia = agencia;
         }
 
         public virtual void Sacar(decimal valor)
