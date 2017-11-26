@@ -22,7 +22,10 @@ namespace POO
             relatorio.Somar(contaCorrente);
             relatorio.Somar(contaPoupanca);
 
+            relatorio.SomarTributos(contaPoupanca);
+
             Console.WriteLine(relatorio.SaldoGeral);
+            Console.WriteLine(relatorio.TributoGeral);
 
             Console.Read();
         }

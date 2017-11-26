@@ -5,6 +5,12 @@ namespace POO
     public class Relatorio
     {
         public decimal SaldoGeral { get; private set; }
+        public decimal TributoGeral { get; private set; }
+
+        public void SomarTributos(ITributo tributo)
+        {
+            this.TributoGeral += tributo.CalcularTributo();
+        }
 
         public void Somar(Conta conta)
         {
