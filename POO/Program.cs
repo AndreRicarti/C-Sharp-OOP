@@ -7,11 +7,16 @@ namespace POO
         static void Main(string[] args)
         {
             ContaCorrente contaCorrente = new ContaCorrente();
-            Console.WriteLine(contaCorrente.TaxaMovimento);
-            Console.WriteLine(contaCorrente.Limite);
-
             ContaPoupanca contaPoupanca = new ContaPoupanca();
-            Console.WriteLine(contaPoupanca.Limite);
+
+            contaCorrente.Saldo = 1000;
+            contaPoupanca.Saldo = 1000;
+
+            contaCorrente.Sacar(200);
+            contaPoupanca.Sacar(200);
+
+            Console.WriteLine(contaCorrente.Saldo);
+            Console.WriteLine(contaPoupanca.Saldo);
 
             Console.Read();
         }

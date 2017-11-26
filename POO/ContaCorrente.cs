@@ -13,5 +13,11 @@ namespace POO
         {
             this.taxaMovimento = 0.1m;
         }
+
+        // Usando Métodos Virtuais no C#
+        public override void Sacar(decimal valor)
+        {
+            base.Sacar(valor + (this.taxaMovimento * valor));
+        }
     }
 }

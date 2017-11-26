@@ -42,7 +42,7 @@ namespace POO
             this.Agencia1 = agencia;
         }
 
-        void Sacar(decimal valor)
+        public virtual void Sacar(decimal valor)
         {
             Saldo -= valor;
         }
