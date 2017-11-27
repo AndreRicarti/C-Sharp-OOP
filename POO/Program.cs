@@ -2,32 +2,79 @@
 
 namespace POO
 {
+    class MinhaExcecao : Exception
+    {
+        public Exception MensagemErro(string msg)
+        {
+            return new Exception(msg);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            ContaCorrente contaCorrente = new ContaCorrente();
-            ContaPoupanca contaPoupanca = new ContaPoupanca();
+            try
+            {
+                int a = 10;
+                int b = 0;
 
-            contaCorrente.Depositar(1000);
-            contaPoupanca.Depositar(1000);
+                if(b == 0)
+                {
+                    throw new MinhaExcecao().MensagemErro("Erro lançado.");
+                }
 
-            contaCorrente.Sacar(200);
-            contaPoupanca.Sacar(200);
+                int resultado = a / b;
 
-            Console.WriteLine(contaCorrente.Saldo);
-            Console.WriteLine(contaPoupanca.Saldo);
+                Console.WriteLine(resultado);
 
-            Relatorio relatorio = new Relatorio();
-            relatorio.Somar(contaCorrente);
-            relatorio.Somar(contaPoupanca);
-
-            relatorio.SomarTributos(contaPoupanca);
-
-            Console.WriteLine(relatorio.SaldoGeral);
-            Console.WriteLine(relatorio.TributoGeral);
+                int[] vetor = new int[] { 1, 2, 3 };
+                Console.WriteLine(vetor[0]);
+            }
+            catch (System.DivideByZeroException ex)
+            {
+                //Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Erro: Divisão por zero");
+            }
+            catch (System.IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Erro: Fora do indice da coleção!!!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetType());
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Fim da Execução");
+            }
 
             Console.Read();
+
+            //ContaCorrente contaCorrente = new ContaCorrente();
+            //ContaPoupanca contaPoupanca = new ContaPoupanca();
+
+            //contaCorrente.Depositar(1000);
+            //contaPoupanca.Depositar(1000);
+
+            //contaCorrente.Sacar(200);
+            //contaPoupanca.Sacar(200);
+
+            //Console.WriteLine(contaCorrente.Saldo);
+            //Console.WriteLine(contaPoupanca.Saldo);
+
+            //Relatorio relatorio = new Relatorio();
+            //relatorio.Somar(contaCorrente);
+            //relatorio.Somar(contaPoupanca);
+
+            //relatorio.SomarTributos(contaPoupanca);
+
+            //Console.WriteLine(relatorio.SaldoGeral);
+            //Console.WriteLine(relatorio.TributoGeral);
+
+            //Console.Read();
         }
     }
 }
